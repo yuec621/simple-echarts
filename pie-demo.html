@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.min.js"></script>
+ <style>
+ #main{
+     background-color:rgb(9, 27, 53);
+     border: 2.6px solid rgba(15, 142, 192);
+ }
+ </style>
+</head>
+<body>
+    <div id="main" style="width:700px;height:500px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        option = {
+            title:{
+                text:'廉洁分析',
+                textStyle:{
+                    color:'rgba(62,168,254)',
+                },
+                padding:[10,0,10,46],
+
+            },
+    legend: {
+        data:['2018','2019'],
+        textStyle:{
+            color:'white',
+            fontSize:16
+        },
+        top:'30',
+
+    },
+    tooltip: {},
+  
+    dataset: {
+        source: [
+            ['product', '2018', '2019'],
+            ['海曙', 4, 4],
+            ['江北', 5,4],
+            ['镇海', 6,7],
+            ['北仑', 3,7],
+            ['杭州湾', 4,8],
+            ['鄞州',5,2],
+            ['余姚', 3,6],
+            ['慈溪',2,8],
+            ['奉化', 1,9],
+            ['宁海', 5,5],
+            ['象山', 9,9]
+        ]
+    },
+   
+       
+   
+    xAxis: {type: 'category',
+        nameLocation:'middle',
+        nameGap:10,
+        splitLine:{
+            show:false,
+           
+        },
+        splitNumber:11,
+        minInterval:0,
+    axisLine:{
+        show:true,
+        lineStyle:{
+            color:'white',
+            width:1,
+        }
+    },
+    axisTick:{
+        show:false
+
+    },
+    data:['海曙','江北','镇海','北仑','杭州湾','鄞州','余姚','慈溪','奉化','宁海','象山'],
+    axisLabel:{
+        interval:0,
+        show:true,
+        textStyle:{
+            color:'white',
+            fontSize:16
+        }
+
+    }
+    
+
+            
+    },
+    yAxis: {type:'value',
+        min:0,
+        max:20,
+        interval:2,
+        minInterval:1,
+        splitLine:{//去掉横向网络线
+            show:false,
+        },
+        axisLine:{
+        show:false
+    },
+    axisTick:{
+        show:false
+
+    },
+    axisLabel:{
+        interval:0,
+        show:true,
+        textStyle:{
+            color:'white',
+            fontSize:16
+        }
+
+    }
+
+    },
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        
+        {
+            
+        type: 'bar',
+        itemStyle:{
+            color:'rgba(62,168,254)',
+            border:'2px solid #ccc',
+                },
+                },
+        {type: 'bar',
+        
+        itemStyle:{
+            color:'yellow'},barWidth:14
+        },
+    
+    ]
+};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
